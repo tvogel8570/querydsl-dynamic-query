@@ -1,5 +1,8 @@
 package com.abhicodes.querydsldynamicquery.predicate;
 
+import com.querydsl.core.types.dsl.*;
+import lombok.SneakyThrows;
+
 import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,18 +13,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.querydsl.core.types.dsl.BooleanExpression;
-import com.querydsl.core.types.dsl.DatePath;
-import com.querydsl.core.types.dsl.NumberPath;
-import com.querydsl.core.types.dsl.PathBuilder;
-import com.querydsl.core.types.dsl.StringPath;
-
-import lombok.SneakyThrows;
-
 /**
  * The Class CommonPredicate.
  *
- * @param <T> the generic type
+ * @param <T>
+ * 		the generic type
  */
 public class CommonPredicate<T> {
 
@@ -31,8 +27,10 @@ public class CommonPredicate<T> {
 	/**
 	 * Instantiates a new common predicate.
 	 *
-	 * @param type           the type
-	 * @param entityVariable the entity variable
+	 * @param type
+	 * 		the type
+	 * @param entityVariable
+	 * 		the entity variable
 	 */
 	public CommonPredicate(Class<? extends T> type, String entityVariable) {
 		this.type = type;
@@ -42,9 +40,12 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the predicate.
 	 *
-	 * @param key      the key
-	 * @param operator the operator
-	 * @param value    the value
+	 * @param key
+	 * 		the key
+	 * @param operator
+	 * 		the operator
+	 * @param value
+	 * 		the value
 	 * @return the predicate
 	 */
 	public BooleanExpression getPredicate(String key, String operator, String value) {
@@ -55,11 +56,16 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the predicate.
 	 *
-	 * @param key        the key
-	 * @param operator   the operator
-	 * @param value      the value
-	 * @param entityPath the entity path
-	 * @param classType  the class type
+	 * @param key
+	 * 		the key
+	 * @param operator
+	 * 		the operator
+	 * @param value
+	 * 		the value
+	 * @param entityPath
+	 * 		the entity path
+	 * @param classType
+	 * 		the class type
 	 * @return the predicate
 	 */
 	private BooleanExpression getPredicate(String key, String operator, String value, PathBuilder<?> entityPath,
@@ -119,9 +125,12 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the number predicate.
 	 *
-	 * @param path     the path
-	 * @param operator the operator
-	 * @param value    the value
+	 * @param path
+	 * 		the path
+	 * @param operator
+	 * 		the operator
+	 * @param value
+	 * 		the value
 	 * @return the number predicate
 	 */
 	private BooleanExpression getNumberPredicate(NumberPath<Integer> path, String operator, Integer value) {
@@ -146,9 +155,12 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the number predicate.
 	 *
-	 * @param path     the path
-	 * @param operator the operator
-	 * @param value    the value
+	 * @param path
+	 * 		the path
+	 * @param operator
+	 * 		the operator
+	 * @param value
+	 * 		the value
 	 * @return the number predicate
 	 */
 	private BooleanExpression getNumberPredicate(NumberPath<Double> path, String operator, Double value) {
@@ -173,9 +185,12 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the number predicate.
 	 *
-	 * @param path     the path
-	 * @param operator the operator
-	 * @param value    the value
+	 * @param path
+	 * 		the path
+	 * @param operator
+	 * 		the operator
+	 * @param value
+	 * 		the value
 	 * @return the number predicate
 	 */
 	private BooleanExpression getNumberPredicate(NumberPath<Long> path, String operator, Long value) {
@@ -198,9 +213,12 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the number predicate.
 	 *
-	 * @param path     the path
-	 * @param operator the operator
-	 * @param numValue the num value
+	 * @param path
+	 * 		the path
+	 * @param operator
+	 * 		the operator
+	 * @param numValue
+	 * 		the num value
 	 * @return the number predicate
 	 */
 	private BooleanExpression getNumberPredicate(NumberPath<?> path, String operator, Object[] numValue) {
@@ -220,10 +238,14 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the date predicate.
 	 *
-	 * @param key        the key
-	 * @param operator   the operator
-	 * @param value      the value
-	 * @param entityPath the entity path
+	 * @param key
+	 * 		the key
+	 * @param operator
+	 * 		the operator
+	 * @param value
+	 * 		the value
+	 * @param entityPath
+	 * 		the entity path
 	 * @return the date predicate
 	 */
 	private BooleanExpression getDatePredicate(String key, String operator, String value, PathBuilder<?> entityPath) {
@@ -260,10 +282,14 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the date time predicate.
 	 *
-	 * @param key        the key
-	 * @param operator   the operator
-	 * @param value      the value
-	 * @param entityPath the entity path
+	 * @param key
+	 * 		the key
+	 * @param operator
+	 * 		the operator
+	 * @param value
+	 * 		the value
+	 * @param entityPath
+	 * 		the entity path
 	 * @return the date time predicate
 	 */
 	private BooleanExpression getDateTimePredicate(String key, String operator, String value,
@@ -301,10 +327,14 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the string predicate.
 	 *
-	 * @param key        the key
-	 * @param operator   the operator
-	 * @param value      the value
-	 * @param entityPath the entity path
+	 * @param key
+	 * 		the key
+	 * @param operator
+	 * 		the operator
+	 * @param value
+	 * 		the value
+	 * @param entityPath
+	 * 		the entity path
 	 * @return the string predicate
 	 */
 	private BooleanExpression getStringPredicate(String key, String operator, String value, PathBuilder<?> entityPath) {
@@ -327,8 +357,10 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the property type.
 	 *
-	 * @param parent   the parent
-	 * @param property the property
+	 * @param parent
+	 * 		the parent
+	 * @param property
+	 * 		the property
 	 * @return the property type
 	 */
 	private Class<?> getPropertyType(Class<?> parent, String property) {
@@ -339,8 +371,10 @@ public class CommonPredicate<T> {
 	/**
 	 * Gets the recursive type.
 	 *
-	 * @param parent       the parent
-	 * @param propertyList the property list
+	 * @param parent
+	 * 		the parent
+	 * @param propertyList
+	 * 		the property list
 	 * @return the recursive type
 	 */
 	@SneakyThrows(NoSuchFieldException.class)
@@ -351,8 +385,8 @@ public class CommonPredicate<T> {
 			propertyList.remove(propertyList.get(0));
 			if ("List".equals(child.getSimpleName())) {
 				return child;
-//				ParameterizedType type = (ParameterizedType) field.getGenericType();
-//				return getRecursiveType((Class<?>) type.getActualTypeArguments()[0], propertyList);
+				//				ParameterizedType type = (ParameterizedType) field.getGenericType();
+				//				return getRecursiveType((Class<?>) type.getActualTypeArguments()[0], propertyList);
 			}
 			return getRecursiveType(child, propertyList);
 		} else {

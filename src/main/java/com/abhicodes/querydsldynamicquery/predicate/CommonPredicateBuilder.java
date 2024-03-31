@@ -1,22 +1,18 @@
 package com.abhicodes.querydsldynamicquery.predicate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
-import org.springframework.util.CollectionUtils;
-
 import com.abhicodes.querydsldynamicquery.utils.SearchCriteria;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Expressions;
+import org.springframework.util.CollectionUtils;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * The Class CommonPredicateBuilder.
  *
- * @param <T> the generic type
+ * @param <T>
+ * 		the generic type
  */
 public class CommonPredicateBuilder<T> {
 
@@ -31,7 +27,8 @@ public class CommonPredicateBuilder<T> {
 	/**
 	 * Instantiates a new common predicate builder.
 	 *
-	 * @param t the t
+	 * @param t
+	 * 		the t
 	 */
 	public CommonPredicateBuilder(Class<T> t) {
 		this.t = t;
@@ -43,7 +40,8 @@ public class CommonPredicateBuilder<T> {
 	/**
 	 * Replace key map.
 	 *
-	 * @param replaceKeyMap the replace key map
+	 * @param replaceKeyMap
+	 * 		the replace key map
 	 * @return the common predicate builder
 	 */
 	public CommonPredicateBuilder<T> replaceKeyMap(Map<String, String> replaceKeyMap) {
@@ -54,7 +52,8 @@ public class CommonPredicateBuilder<T> {
 	/**
 	 * And.
 	 *
-	 * @param criteria the criteria
+	 * @param criteria
+	 * 		the criteria
 	 * @return the common predicate builder
 	 */
 	public CommonPredicateBuilder<T> and(SearchCriteria criteria) {
@@ -67,7 +66,8 @@ public class CommonPredicateBuilder<T> {
 	/**
 	 * And.
 	 *
-	 * @param criterias the criterias
+	 * @param criterias
+	 * 		the criterias
 	 * @return the common predicate builder
 	 */
 	public CommonPredicateBuilder<T> and(List<SearchCriteria> criterias) {
@@ -100,7 +100,8 @@ public class CommonPredicateBuilder<T> {
 	/**
 	 * Gets the entity variable.
 	 *
-	 * @param simpleClassName the simple class name
+	 * @param simpleClassName
+	 * 		the simple class name
 	 * @return the entity variable
 	 */
 	private static String getEntityVariable(String simpleClassName) {

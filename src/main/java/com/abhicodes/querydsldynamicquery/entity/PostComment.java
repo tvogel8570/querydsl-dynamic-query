@@ -1,17 +1,8 @@
 package com.abhicodes.querydsldynamicquery.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
-
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "abhi_post_comments")
@@ -20,7 +11,7 @@ public class PostComment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-	@GenericGenerator(name = "native", strategy = "native")
+	@GenericGenerator(name = "native")
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
